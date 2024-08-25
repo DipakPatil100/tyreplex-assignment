@@ -57,7 +57,7 @@ const products = [
 export default function Product() {
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={0} justifyContent="center">
         {products.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
             <ProductCard {...product} />
