@@ -13,10 +13,11 @@ import {
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import NavigationIcon from "@mui/icons-material/Navigation";
 
 export default function ShopCard() {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
       <Card sx={{ maxWidth: "100%", margin: "20px auto" }}>
         <CardContent>
           <Typography variant="h5" component="div" gutterBottom>
@@ -49,7 +50,8 @@ export default function ShopCard() {
             <AccessTimeIcon sx={{ mr: 1 }} />
             Open - Monday to Sunday - 10:00AM to 8:00PM
           </Typography>
-          <Button variant="contained" color="error" sx={{ mb: 3 }}>
+          <Button variant="outlined" color="error" sx={{ mb: 3 }}>
+            <NavigationIcon />
             Get Directions
           </Button>
           <Typography variant="h6" sx={{ mb: 2 }}>

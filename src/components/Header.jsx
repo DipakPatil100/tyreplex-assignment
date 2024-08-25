@@ -90,13 +90,13 @@ export default function Header() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem onClick={() => handleExpandSubMenu('CarTyres')}>
+      <MenuItem onClick={() => handleExpandSubMenu("CarTyres")}>
         <p>Car Tyres</p>
         <ArrowRightIcon />
       </MenuItem>
       <Menu
         anchorEl={submenuAnchorEl}
-        open={expandedSubMenu === 'CarTyres'}
+        open={expandedSubMenu === "CarTyres"}
         onClose={handleSubMenuClose}
         keepMounted
       >
@@ -148,24 +148,25 @@ export default function Header() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar
+        sx={{
+          padding: "0 20px",
+          backgroundColor: "#8386f7a1",
+        }}
+        position="static"
+      >
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: "block", sm: "block" } }}
           >
-            TyrePlex
+            {/* TyrePlex */}
+            <img
+              src="https://cdn.tyreplex.net/themes/moonlight/images/TP-logo.png?tr=w-150,q-60"
+              alt=""
+            />
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
