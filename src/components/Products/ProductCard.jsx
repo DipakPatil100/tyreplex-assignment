@@ -7,6 +7,7 @@ import {
   Box,
   Grid,
   Badge,
+  Rating,
 } from "@mui/material";
 
 const ProductCard = ({
@@ -15,6 +16,7 @@ const ProductCard = ({
   size,
   price,
   reviews,
+  rating,
   warranty,
   offer,
   tubeless,
@@ -22,7 +24,11 @@ const ProductCard = ({
   return (
     <Card sx={{ maxWidth: 345, margin: 2 }}>
       <CardMedia component="img" height="140" image={image} alt={title} />
-      <CardContent>
+      <CardContent
+        sx={{
+          textAlign: "left",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -41,7 +47,7 @@ const ProductCard = ({
           <Badge
             sx={{
               height: "20px",
-              lineHeight:"20px"
+              lineHeight: "20px",
             }}
             badgeContent={warranty}
             color="warning"
@@ -54,8 +60,17 @@ const ProductCard = ({
           ₹ {price}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          <Box component="span" sx={{ color: "green" }}>
-            {reviews} Reviews
+          <Box
+            component="span"
+            sx={{
+              color: "green",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
+            }}
+          >
+            <span>{reviews} Reviews</span>
+            <Rating name="read-only" value={rating} readOnly />
           </Box>
         </Typography>
         <Typography variant="body2" color="text.secondary">
