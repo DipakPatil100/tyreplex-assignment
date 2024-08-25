@@ -14,11 +14,16 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import NavigationIcon from "@mui/icons-material/Navigation";
+import Slider from "./Slide";
+import Reviews from "./Reviews";
 
 export default function ShopCard() {
   return (
     <Container maxWidth="lg">
       <Card sx={{ maxWidth: "100%", margin: "20px auto" }}>
+        <CardContent>
+          <Slider />
+        </CardContent>
         <CardContent>
           <Typography variant="h5" component="div" gutterBottom>
             SHREE HEMKUNT TYRES AND SERVICES
@@ -57,6 +62,9 @@ export default function ShopCard() {
           <Typography variant="h6" sx={{ mb: 2 }}>
             2278 Google Reviews
           </Typography>
+        </CardContent>
+        <CardContent>
+          <Reviews/>
         </CardContent>
       </Card>
     </Container>

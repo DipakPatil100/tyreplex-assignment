@@ -10,6 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import { Container } from "@mui/material";
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -67,6 +68,7 @@ export default function Header() {
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
+      sx={{ mt: 5 }}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
@@ -89,21 +91,12 @@ export default function Header() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
+      sx={{ mt: 6 }}
     >
-      <MenuItem onClick={() => handleExpandSubMenu("CarTyres")}>
+      <MenuItem onClick={(event) => handleSubMenuOpen(event, "CarTyres")}>
         <p>Car Tyres</p>
         <ArrowRightIcon />
       </MenuItem>
-      <Menu
-        anchorEl={submenuAnchorEl}
-        open={expandedSubMenu === "CarTyres"}
-        onClose={handleSubMenuClose}
-        keepMounted
-      >
-        <MenuItem onClick={handleMenuClose}>CEAT Tyres</MenuItem>
-        <MenuItem onClick={handleMenuClose}>MRF Tyres</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Bridgestone Tyres</MenuItem>
-      </Menu>
       <MenuItem>
         <p>Bike Tyres</p>
       </MenuItem>
@@ -147,11 +140,17 @@ export default function Header() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        zIndex: 100,
+      }}
+    >
       <AppBar
         sx={{
-          padding: "0 20px",
-          backgroundColor: "#8386f7a1",
+          padding: { xs: "0", md: "0 80px" },
+          backgroundColor: "white",
+          borderBottom: "1px solid lightgrey",
         }}
         position="static"
       >
@@ -169,10 +168,10 @@ export default function Header() {
             />
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, color: "black" }}>
             <MenuItem
               // onMouseEnter={handleSubMenuOpen}
-              onClick={handleSubMenuOpen}
+              onClick={(event) => handleSubMenuOpen(event, "CarTyres")}
             >
               <p>Car Tyres</p>
             </MenuItem>
@@ -191,6 +190,8 @@ export default function Header() {
             <MenuItem>
               <p>More</p>
             </MenuItem>
+          </Box>
+          <Box sx={{ display: "flex", mr: 2, color: "black" }}>
             <IconButton
               size="large"
               edge="end"
@@ -203,14 +204,14 @@ export default function Header() {
               <AccountCircle />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ display: { xs: "block", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="show more"
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color="inherit"
+              color="black"
             >
               <MoreIcon />
             </IconButton>
